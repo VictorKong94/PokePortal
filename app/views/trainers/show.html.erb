@@ -4,13 +4,17 @@
 
 <table>
   <tr class="header">
+    <td></td>
     <td>Pokemon</td>
     <td>Level</td>
+    <td>Health</td>
   </tr>
   <% @pokemons.each do |pokemon| %>
   <tr>
+    <td><%= button_to "Damage!", damage_path(id: pokemon), :class => "button medium", :method => :patch %></td>
     <td><%= "#{pokemon.name}" %></td>
     <td><%= "#{pokemon.level}" %></td>
+    <td><%= "#{pokemon.health}" %></td>
   </tr>  
   <% end %>
 </table>
