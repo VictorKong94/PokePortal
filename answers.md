@@ -6,6 +6,9 @@ The random pokemon that appear are all starters without trainers that were
 found in the `db/seeds.rb` file.
 
 # Question 2a: What does the following line do "<%= button_to "Throw a Pokeball!", capture_path(id: @pokemon), :class => "button medium", :method => :patch %>"? Be specific about what "capture_path(id: @pokemon)" is doing. If you're having trouble, look at the Help section in the README.
+The line creates a button that says "Throw a Pokeball!" Clicking the button
+calls the `capture` method belonging to Pokemon, passing the current pokemon's
+id as an argument.
 
 # Question 3: What would you name your own Pokemon?
 
