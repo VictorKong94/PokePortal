@@ -18,6 +18,8 @@ I don't need a path to pass into redirect_to; Rails saves requests paths so I
 can just pass in `:back`.
 
 # Question 5: Explain how putting this line "flash[:error] = @pokemon.errors.full_messages.to_sentence" shows error messages on your form.
+This works because `flash[:error]` (the message that the user sees) is defined
+here to be the validation error outputted by the `Pokemon` model.
 
 # Give us feedback on the project and decal below!
 
