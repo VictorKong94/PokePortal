@@ -11,6 +11,7 @@ calls the `capture` method belonging to Pokemon, passing the current pokemon's
 id as an argument.
 
 # Question 3: What would you name your own Pokemon?
+Bulbabob, Charmanbob, Squirtbob, and Pikabob.
 
 # Question 4: What did you pass into the redirect_to? If it is a path, what did that path need? If it is not a path, why is it okay not to have a path here?
 
