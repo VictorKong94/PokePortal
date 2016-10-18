@@ -22,7 +22,7 @@ class PokemonsController < ApplicationController
     # Compute experience gained for defeating an enemy pokemon
     if @enemy.health == 0
       experience = 5 * [@enemy.level - @ally.level, 1].max
-      @ally.experience = @ally.experience + experience
+      @ally.experience += experience
       if @ally.experience >= 10 * @ally.level
         @ally.level += 1
         @ally.health = 100
