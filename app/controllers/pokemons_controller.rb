@@ -64,6 +64,12 @@ class PokemonsController < ApplicationController
     end
   end
 
+  def release
+    @pokemon = Pokemon.find(params[:id])
+    @pokemon.destroy
+    redirect_to :back
+  end
+
   private
 
   def new_params
