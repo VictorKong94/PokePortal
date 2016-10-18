@@ -11,6 +11,8 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'foundation-rails', '5.4.5'
 gem 'simple_form'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
 
 group :development do
   gem 'sqlite3'

@@ -1,3 +1,6 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 // import the CSS framework
 @import "foundation";
 
@@ -89,4 +92,15 @@ section {
   @extend .button;
   @extend .radius;
   @extend .tiny;
+}
+.attack-btn {
+  width: 185px;
+}
+.heal-btn {
+  width: 60px;
+}
+.select-option {
+  background-color: white;
+  border: 0px;
+  width: 184px;
 }

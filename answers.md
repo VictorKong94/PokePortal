@@ -22,5 +22,7 @@ This works because `flash[:error]` (the message that the user sees) is defined
 here to be the validation error outputted by the `Pokemon` model.
 
 # Give us feedback on the project and decal below!
+It was fun! The extra credit was challenging and definitely worth doing.
 
 # Extra credit: Link your Heroku deployed app
+

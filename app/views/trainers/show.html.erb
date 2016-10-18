@@ -1,3 +1,7 @@
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
 <h3>Trainer</h3>
 <p>Name: <%= @trainer.name if @trainer.name %></p>
 <p>Email: <%= @trainer.email if @trainer.email %></p>
@@ -8,17 +12,38 @@
     <td>Pokemon</td>
     <td>Level</td>
     <td>Health</td>
+    <td>Experience</td>
   </tr>
   <% @pokemons.each do |pokemon| %>
-  <tr>
-    <td><%= button_to "Damage!", damage_path(id: pokemon), :class => "button medium", :method => :patch %></td>
-    <td><%= "#{pokemon.name}" %></td>
-    <td><%= "#{pokemon.level}" %></td>
-    <td><%= "#{pokemon.health}" %></td>
-  </tr>  
+    <% unless (@trainer.id != current_trainer.id && pokemon.health == 0) %>
+      <tr>
+        <td>
+          <% if @trainer.id == current_trainer.id %>
+            <%= link_to "Heal!", heal_path(id: pokemon), :class => "btn heal-btn btn-default", :method => :patch %>
+          <% else %>
+            <div class="btn-group">
+              <button type="button" class="btn attack-btn btn-default dropdown-toggle" data-toggle="dropdown">
+                Attack with a Pokemon! <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <% @allies.each do |ally| %>
+                  <% unless ally.health == 0 %>
+                    <li><%= button_to ally.name, damage_path(enemy: pokemon, ally: ally.id), :class => "select-option", :method => :patch %></li>
+                  <% end %>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+        </td>
+        <td><%= "#{pokemon.name}" %></td>
+        <td><%= "#{pokemon.level}" %></td>
+        <td><%= "#{pokemon.health}" %></td>
+        <td><%= "#{pokemon.experience}" %></td>
+      </tr>
+    <% end %>
   <% end %>
 </table>
 
 <% if @trainer.id == current_trainer.id %>
-  <p><%= link_to "Create a new Pokemon!", pokemons_new_path, :class => "button medium", :method => :get %></p>
+  <p><%= link_to "Create a new Pokemon!", pokemons_new_path, :class => "btn btn-default dropdown-toggle", :method => :get %></p>
 <% end %>
