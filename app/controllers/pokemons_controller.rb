@@ -1,7 +1,9 @@
 class PokemonsController < ApplicationController
 
   def capture
+    @trainer_name = current_trainer.name
     @pokemon = Pokemon.find(params[:id])
+    @pokemon.name = "#{@trainer_name}'s #{@pokemon.name}"
     @pokemon.trainer_id = current_trainer.id
     @pokemon.save
     redirect_to root_path
@@ -45,7 +47,10 @@ class PokemonsController < ApplicationController
   end
 
   def create
-    @pokemon = Pokemon.new(new_params)
+    @trainer_name = current_trainer.name
+    @pokemon_name = new_params[:name]
+    @pokemon = Pokemon.new
+    @pokemon.name = "#{@trainer_name}'s #{@pokemon_name}"
     @pokemon.trainer_id = current_trainer.id
     @pokemon.level = 1
     @pokemon.health = 100
