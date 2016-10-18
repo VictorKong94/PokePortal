@@ -3,6 +3,7 @@ class TrainersController < ApplicationController
 
   def index
     @trainers = Trainer.all
+    @trainers = @trainers.sort_by { |trainer| trainer.name}
   end
 
   def show
