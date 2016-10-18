@@ -25,4 +25,4 @@ here to be the validation error outputted by the `Pokemon` model.
 It was fun! The extra credit was challenging and definitely worth doing.
 
 # Extra credit: Link your Heroku deployed app
-
+[Link to Heroku](https://pokeportal-victorkong94.herokuapp.com)
