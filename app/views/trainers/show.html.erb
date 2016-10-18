@@ -13,6 +13,9 @@
     <td>Level</td>
     <td>Health</td>
     <td>Experience</td>
+    <% if @trainer.id == current_trainer.id %>
+      <td></td>
+    <% end %>
   </tr>
   <% @pokemons.each do |pokemon| %>
     <% unless (@trainer.id != current_trainer.id && pokemon.health == 0) %>
@@ -36,9 +39,14 @@
           <% end %>
         </td>
         <td><%= "#{pokemon.name}" %></td>
-        <td><%= "#{pokemon.level}" %></td>
-        <td><%= "#{pokemon.health}" %></td>
-        <td><%= "#{pokemon.experience}" %></td>
+        <td class="right-align"><%= "#{pokemon.level}" %></td>
+        <td class="right-align"><%= "#{pokemon.health}" %></td>
+        <td class="right-align"><%= "#{pokemon.experience}" %></td>
+        <% if @trainer.id == current_trainer.id %>
+          <td>
+            <%= link_to "Release!", release_path(id: pokemon), :class => "btn release-btn btn-default", :method => :patch %>
+          </td>
+        <% end %>
       </tr>
     <% end %>
   <% end %>
